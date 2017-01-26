@@ -1,0 +1,44 @@
+install mongodb
+//enable http interface
+#mongod --directoryperdb --dbpath C:\mongodb\data\db --logpath C:\mongodb\data\log\mongodb.log --logappend --rest --install
+
+#net start MongoDB
+or
+#mongo
+
+#show dos
+#use nodeauth
+#db.createCollection(‘users’)
+#show collections
+
+
+> db.users.insert({name:"test user1", email:"test@test.com",username:"testuser1", password:"1234"});
+> db.users.find()
+> db.users.find().pretty()
+> db.users.update({username:"testuser2"},{$set:{email:"testuser2updated@test.com"}});
+
+create nodeauth folder
+#npm init //enter app.js as entry point
+#npm install express —save
+#npm install express-generator -g
+
+#express //it will create app
+#npm install //install required packages
+#DEBUG=nodeauth:* npm start
+In browser http://localhost:3000
+
+add below dependencies in package.json and run npm install
+    "mongodb":"*",
+    "mongoose":"*",
+    "connect-flash":"*",
+    "express-validator":"*",
+    "express-session":"*",
+    "express-messages":"*",
+    "passport":"*",
+    "passport-local":"*",
+    "passport-http":"*",
+    "multer":"*"
+
+
+
+
