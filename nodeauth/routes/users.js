@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 
+var User = require('../models/user.js');
+
 /* GET users listing. */
 router.get('/', function(req, res, next) {
   res.send('respond with a resource');
@@ -40,12 +42,12 @@ router.post('/register', function(req, res){
 	req.checkBody('name', 'Name Field is required').notEmpty();
 	req.checkBody('email', 'Email Field is required').notEmpty();
 	req.checkBody('email', 'Email is not valid').isEmail();
-	req.checkBody('usename', 'Usename field is required');
+	req.checkBody('username', 'Usename field is required');
 	req.checkBody('password', 'Password Field is required').notEmpty();
 	req.checkBody('password2', 'Passwords do not match').equals(req.body.password);
 	
 	//Check for errors
-	var errors = req.validateErrors();
+	var errors = req.validationErrors();
 	
 	if(errors){
 		res.render('register',{
@@ -62,7 +64,7 @@ router.post('/register', function(req, res){
 			email: email,
 			username: username,
 			password: password,
-			profileImage: profileImage
+			profileImage: profileImageName
 		});
 		
 		// Create User
@@ -70,6 +72,10 @@ router.post('/register', function(req, res){
 			if(err) throw err;
 			console.log(user);
 		});
+		
+		req.flash('success', 'You are now registered and may login');
+		res.location('/');
+		res.redirect('/');
 	}
 });
 
