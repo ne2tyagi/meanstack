@@ -68,8 +68,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(flash());
 app.use(function(req, res, next){
- res.locals.message = require('express-messages')(req, res);
+ res.locals.messages = require('express-messages')(req, res);
  next();
+});
+
+app.get('/*', function(req, res, next){
+	res.locals.user = req.user || null;
+	next();
 });
 
 app.use('/', index);
@@ -92,5 +97,6 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
 
 module.exports = app;
