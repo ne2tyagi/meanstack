@@ -13,15 +13,18 @@
     "jade": "~1.11.0",
     "morgan": "~1.7.0",
     "serve-favicon": "~2.3.0",
-    "mongodb":"*",
-    "mongoose":"*",
-    "connect-flash":"*",
-    "express-validator":"*",
-    "express-session":"*",
-    "express-messages":"*",
-    "passport":"*",
-    "passport-local":"*",
-    "passport-http":"*",
-    "multer":"*"
+    "mongodb": "*",
+    "mongoose": "*",
+    "connect-flash": "*",
+    "express-validator": "*",
+    "express-session": "*",
+    "express-messages": "*",
+    "passport": "*",
+    "passport-local": "*",
+    "passport-http": "*",
+    "multer": "*"
+  },
+  "devDependencies": {
+    "bcrypt": "^1.0.2"
   }
 }
